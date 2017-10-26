@@ -1,5 +1,5 @@
 module.exports = {
   isNumeric: function (value) {
-    return /^\d+$/.test(value);
+    return /^\d+$/.test(value)
   }
-};
+}
