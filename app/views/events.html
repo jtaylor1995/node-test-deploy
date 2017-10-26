@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<table class="table table-hover" cellspacing="0" width="100%">
+  <thead class="table-inverse">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for event in events %}
+      <tr>
+        <td>{{ event.id }}</td>
+        <td>{{ event.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.location }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+  <form action="/add-event" method="post" class="form">
+    <h1 class="form-title heading-large">Add Event</h1>
+    <div class="form-group">
+      <label class="form-label" for="name">Name <span class="form-hint">Enter name of Event</span></label><input type="text" name="name" id="name" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="description">Description <span class="form-hint">Enter description of Event</span></label><input type="text" name="description" id="description" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="location">Location <span class="form-hint">Enter location of Event</span></label><input type="text" name="location" id="location" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button" name="Submit"/>
+    </div>
+
+  </form>
+
+
+<a href="/send-text">TEXT</a>
+<a href="/send-email">Email</a>
+
+
+<a href="/pay1">PAY</a>
+  <!-- <form action="/pay" method="post" class="form">
+    <div class="form-group">
+      <input type="submit" class="button" name="Submit"/>
+    </div>
+  </form> -->
+
+
+
+{% endblock %}
